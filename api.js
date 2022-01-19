@@ -17,11 +17,11 @@ function onSeach(event) {
 function seachPeople(people) {
     fetch(`https://swapi.dev/api/people/${people}/`)
         .then((x) => x.json())
-        .then((x)=>renderPokemonCard(x))
+        .then((x)=>renderSw(x))
     
 }
 
-function renderPokemonCard(sw) {
+function renderSw(sw) {
     let z = sw.films
     let card1 = 
     `<div class="card">
@@ -32,7 +32,7 @@ function renderPokemonCard(sw) {
 
     <p class="card-text"> <b> Фильмы</b></p>
     <ul class="list-group"> </ul>`
-    // let card2 = 
+    let card2 = "" 
     let lili =[]
     for (let i = 0; i < z.length; i += 1) {
             
@@ -42,26 +42,32 @@ function renderPokemonCard(sw) {
                 .then((y) => (y.title))
             
         a
-            .then(p => lili.push(p))
-            
-            
-           
-                            
-          
+            .then(p => check(p))
+        
+        
+        function check(p) {
+            if (i === z.length - 1) {
+                lili.push(p)
+                pushing(lili)
+            } else {
+                lili.push(p)
+            }
+        } 
     }
-    console.log(lili)
-    
-    
-
+    function pushing(p) {
         
-        
+        console.log(lili)
+        card2 = lili.map(x => `<li>${x}</li>`).join("")
+        console.log(card2);
+        render()
+    }
     let card3 = `</ul>
         </div>
         </div>`
-
     
-    
-  telo.innerHTML = card1 + card3;
+    function render() {
+        telo.innerHTML = card1 + card2 + card3;
+    }
 }
 
     
