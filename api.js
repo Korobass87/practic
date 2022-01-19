@@ -59,15 +59,18 @@ function renderSw(sw) {
         console.log(lili)
         card2 = lili.map(x => `<li>${x}</li>`).join("")
         console.log(card2);
-        render()
+        const ul = document.querySelector('.list-group')
+        console.log(ul)
+        ul.innerHTML =  card2 
+       
     }
     let card3 = `</ul>
         </div>
         </div>`
     
-    function render() {
-        telo.innerHTML = card1 + card2 + card3;
-    }
+    
+        telo.innerHTML = card1 + card3;
+    
 }
 
     
