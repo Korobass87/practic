@@ -1,0 +1,27 @@
+.pokemons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.card {
+  width: calc(1200px / 5 - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 15px;
+  border: 2px solid black;
+  border-top-left-radius: 100% 20px;
+  border-bottom-right-radius: 100% 20px;
+  background-color: rgba(233, 230, 230, 0.918);
+}
+.card p {
+  margin: 0;
+}
+
+.active {
+  background-color: aquamarine;
+}
